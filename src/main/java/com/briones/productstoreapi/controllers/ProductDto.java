@@ -2,9 +2,7 @@ package com.briones.productstoreapi.controllers;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 public class ProductDto {
     @NotEmpty(message = "The name is required")
@@ -23,7 +21,7 @@ public class ProductDto {
     @Size(max = 2000, message = "The description cannot exceed 2000 characters")
     private String description;
 
-    private MultipartFile imagFile;
+    private MultipartFile imageFile;
 
     public String getName() {
         return name;
@@ -65,11 +63,11 @@ public class ProductDto {
         this.description = description;
     }
 
-    public MultipartFile getImagFile() {
-        return imagFile;
+    public MultipartFile getImageFile() {
+        return imageFile;
     }
 
-    public void setImagFile(MultipartFile imagFile) {
-        this.imagFile = imagFile;
+    public void setImageFile(MultipartFile imageFile) {
+        this.imageFile = imageFile;
     }
 }
