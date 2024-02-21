@@ -23,6 +23,10 @@ import com.briones.productstoreapi.models.Product;
 import com.briones.productstoreapi.services.ProductsRepository;
 
 import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestBody;
+
+
 
 @Controller
 @RequestMapping("/products")
@@ -86,4 +90,32 @@ public class ProductsController {
 
         return "redirect:/products";
     }
+
+    @GetMapping("/edit")
+    public String showEditPage(Model model, @RequestParam int id) {
+        try {
+            Product product = repo.findById(id).get();
+            model.addAttribute("product", product);
+
+            ProductDto productDto = new ProductDto();
+            product.setName(product.getName());
+            product.setBrand(product.getBrand());
+            product.setCategory(product.getCategory());
+            product.setPrice(product.getPrice());
+            product.setDescription(product.getDescription());
+            
+            model.addAttribute("productDto", productDto);
+        } catch (Exception e) {
+            System.out.println("Exception: " + e.getMessage());
+            return "redirect:/products";
+        }
+        return "products/editProduct";
+    }
+    
+    @PostMapping("/edit")
+    public String postMethodName(Model model, @RequestParam int id, @Valid @ModelAttribute ProductDto productDto, BindingResult result) {
+        
+        return "redirect:/products";
+    }
+    
 }
