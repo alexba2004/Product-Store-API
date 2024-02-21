@@ -3,38 +3,56 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>productDto Store</title>
+    <title>ProductDto Store</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <style>
+      body {
+        background-color: #f8f9fa; /* Color de fondo */
+      }
+      .form-container {
+        background-color: #fff; /* Fondo blanco */
+        border-radius: 10px; /* Bordes redondeados */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+        padding: 20px; /* Espaciado interno */
+      }
+      .form-title {
+        color: #007bff; /* Color azul */
+        text-align: center;
+      }
+      .form-label {
+        font-weight: bold; /* Negrita */
+      }
+    </style>
   </head>
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-md-8 mx-auto rounded border p-4 m-4">
-          <h2 class="text-center mb-5">Edit Product</h2>
+        <div class="col-md-8 mx-auto rounded border p-4 m-4 form-container">
+          <h2 class="form-title mb-5">Edit Product</h2>
 
           <form method="post" enctype="multipart/form-data" th:object="${productDto}">
             <div class="row mb-3">
-              <label class="col-sm-4 col-form-label">ID</label>
+              <label class="col-sm-4 col-form-label form-label">ID:</label>
               <div class="col-sm-8">
                 <input readonly class="form-control-plaintext" th:value="${product.id}" />
               </div>
             </div>
             <div class="row mb-3">
-              <label class="col-sm-4 col-form-label">Name</label>
+              <label class="col-sm-4 col-form-label form-label">Name:</label>
               <div class="col-sm-8">
                 <input class="form-control" th:field="${product.name}" />
-                <p th:if="${#fields.hasErrors('name')}" th:errorclass="text-danger" th:errors="${productDto.name}"></p>
+                <p th:if="${#fields.hasErrors('name')}" class="text-danger" th:errors="${productDto.name}"></p>
               </div>
             </div>
             <div class="row mb-3">
-              <label class="col-sm-4 col-form-label">Brand</label>
+              <label class="col-sm-4 col-form-label form-label">Brand:</label>
               <div class="col-sm-8">
                 <input class="form-control" th:field="${product.brand}" />
-                <p th:if="${#fields.hasErrors('brand')}" th:errorclass="text-danger" th:errors="${productDto.brand}"></p>
+                <p th:if="${#fields.hasErrors('brand')}" class="text-danger" th:errors="${productDto.brand}"></p>
               </div>
             </div>
             <div class="row mb-3">
-              <label class="col-sm-4 col-form-label">Category</label>
+              <label class="col-sm-4 col-form-label form-label">Category:</label>
               <div class="col-sm-8">
                 <select class="form-select" th:field="${product.category}">
                   <option value="Other" hidden>-SELECT A CATEGORY-</option>
@@ -48,21 +66,21 @@
                   <option value="Snacks">Snacks</option>
                   <option value="Sports Drink">Sports Drink</option>
                 </select>
-                <p th:if="${#fields.hasErrors('category')}" th:errorclass="text-danger" th:errors="${productDto.category}"></p>
+                <p th:if="${#fields.hasErrors('category')}" class="text-danger" th:errors="${productDto.category}"></p>
               </div>
             </div>
             <div class="row mb-3">
-              <label class="col-sm-4 col-form-label">Price</label>
+              <label class="col-sm-4 col-form-label form-label">Price:</label>
               <div class="col-sm-8">
                 <input class="form-control" type="number" th:field="${product.price}" />
-                <p th:if="${#fields.hasErrors('price')}" th:errorclass="text-danger" th:errors="${productDto.price}"></p>
+                <p th:if="${#fields.hasErrors('price')}" class="text-danger" th:errors="${productDto.price}"></p>
               </div>
             </div>
             <div class="row mb-3">
-              <label class="col-sm-4 col-form-label">Description</label>
+              <label class="col-sm-4 col-form-label form-label">Description:</label>
               <div class="col-sm-8">
                 <textarea class="form-control" th:field="${product.description}"></textarea>
-                <p th:if="${#fields.hasErrors('description')}" th:errorclass="text-danger" th:errors="${productDto.description}"></p>
+                <p th:if="${#fields.hasErrors('description')}" class="text-danger" th:errors="${productDto.description}"></p>
               </div>
             </div>
             <div class="row mb-3">
@@ -71,14 +89,14 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label class="col-sm-4 col-form-label">Image</label>
+              <label class="col-sm-4 col-form-label form-label">Image:</label>
               <div class="col-sm-8">
                 <input class="form-control" type="file" th:field="${productDto.imageFile}" />
-                <p th:if="${#fields.hasErrors('imageFile')}" th:errorclass="text-danger" th:errors="${productDto.imageFile}"></p>
+                <p th:if="${#fields.hasErrors('imageFile')}" class="text-danger" th:errors="${productDto.imageFile}"></p>
               </div>
             </div>
             <div class="row mb-3">
-              <label class="col-sm-4 col-form-label">Created At</label>
+              <label class="col-sm-4 col-form-label form-label">Created At:</label>
               <div class="col-sm-8">
                 <input readonly class="form-control-plaintext" th:value="${product.createdAt}" />
               </div>
