@@ -155,4 +155,23 @@ public class ProductsController {
         return "redirect:/products";
     }
     
+    @GetMapping("/delete")
+    public String deleteProduct(@RequestParam int id) {
+        try {
+            Product product = repo.findById(id).get();
+            Path imagPath = Paths.get("public/img/" + product.getImageFileName());
+
+            try {
+                Files.delete(imagPath);
+            } catch (Exception e) {
+                System.out.println("Exception: " + e.getMessage());
+            }
+
+            repo.delete(product);
+        } catch (Exception e) {
+            System.out.println("Exception: " + e.getMessage());
+        }
+        return "redirect:/products";
+    }
+    
 }
