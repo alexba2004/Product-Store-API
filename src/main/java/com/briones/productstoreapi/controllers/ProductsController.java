@@ -140,6 +140,10 @@ public class ProductsController {
                     Files.copy(inputStream, Paths.get(uploadDir + storageFileName), StandardCopyOption.REPLACE_EXISTING);
                 }
                 product.setImageFileName(storageFileName);
+            } else {
+                String storageFileName = product.getImageFileName();
+                product.setImageFileName(storageFileName);
+            }   
 
                 product.setName(productDto.getName());
                 product.setBrand(productDto.getBrand());
@@ -148,7 +152,6 @@ public class ProductsController {
                 product.setDescription(productDto.getDescription());
 
                 repo.save(product);
-            }
         } catch (Exception e) {
             System.out.println("Exception: " + e.getMessage());
         }
