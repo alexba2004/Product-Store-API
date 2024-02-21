@@ -1,6 +1,6 @@
 # Product-Store-API
 
-This project is a simple API for managing a product store. It allows performing basic CRUD (Create, Read, Update, Delete) operations on the products available in the store. It is developed using Java, Spring Boot, MySQL, Thymeleaf, and Bootstrap.
+This project is a simple MVC-based API for managing a product store. It allows performing basic CRUD (Create, Read, Update, Delete) operations on the products available in the store. Developed using Java, Spring Boot, MySQL, Thymeleaf, and Bootstrap.
 
 ## Features
 
