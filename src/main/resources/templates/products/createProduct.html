@@ -30,8 +30,9 @@
             <div class="row mb-3">
               <label class="col-sm-4 col-form-label">Category</label>
               <div class="col-sm-8">
-                <select class="form-select" th:field="${productDto.category}" default="SELECT">
-                  <option value="" disabled selected>-SELECT A CATEGORY-</option>
+                <select class="form-select" th:field="${productDto.category}">
+                  <option value="Other" hidden>-SELECT A CATEGORY-</option>
+                  <option value="Other">Other</option>
                   <option value="Bread">Bread</option>
                   <option value="Candy">Candy</option>
                   <option value="Chips">Chips</option>
@@ -40,7 +41,6 @@
                   <option value="Energy Drink">Energy Drink</option>
                   <option value="Snacks">Snacks</option>
                   <option value="Sports Drink">Sports Drink</option>
-                  <option value="Other">Other</option>
                 </select>
                 <p th:if="${#fields.hasErrors('category')}" th:errorclass="text-danger" th:errors="${productDto.category}"></p>
               </div>
