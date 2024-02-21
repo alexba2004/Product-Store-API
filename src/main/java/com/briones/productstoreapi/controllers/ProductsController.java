@@ -26,7 +26,7 @@ public class ProductsController {
     }
 
     @GetMapping({"","/create"})
-    public String showCreateProduct(Model model) {
+    public String showCreatePage(Model model) {
         ProductDto productDto = new ProductDto();
         model.addAttribute("productDto", productDto);
         return "products/createProduct";
